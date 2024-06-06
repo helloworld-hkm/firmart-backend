@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\StocksController;
+use App\Http\Controllers\TransactionsController;
+use App\Http\Controllers\TypesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('items',ItemsController::class);
+Route::apiResource('types',TypesController::class);
+Route::apiResource('stocks',StocksController::class);
+Route::apiResource('transactions',TransactionsController::class);
