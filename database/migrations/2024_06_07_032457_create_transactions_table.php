@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stocks', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->integer('stock');
             $table->foreignId('id_items')
             ->constrained(
-                table: 'items', indexName: 'id_items'
+                table: 'items', indexName: 'id_items_transactions'
             )
             ->onUpdate('cascade')
             ->onDelete('cascade');
-
+            $table->date('transaction_date');
+            $table->integer('quantity_sold');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stocks');
+        Schema::dropIfExists('transactions');
     }
 };

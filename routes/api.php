@@ -24,5 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('items',ItemsController::class);
 Route::apiResource('types',TypesController::class);
-Route::apiResource('stocks',StocksController::class);
 Route::apiResource('transactions',TransactionsController::class);
+Route::get('/sort/{by}',[TransactionsController::class,'sortBy']);
+Route::get('/search/{keyword}', [TransactionsController::class, 'search'])->name('transactions.search');
+Route::get('/type/{type}', [TransactionsController::class, 'groupBy']);
+Route::get('/type/{type}/{from}/{to}', [TransactionsController::class, 'range']);

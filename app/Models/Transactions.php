@@ -16,8 +16,5 @@ class Transactions extends Model
         return $this->belongsTo(Items::class,'id_items','id');
         // return $this->belongsToMany(Hardware::class, 'hardware_pc', 'pc_id', 'hardware_id')->withPivot('keterangan');
     }
-    public function types(): BelongsTo
-    {
-        return $this->belongsTo(Types::class,'id_types','id');
-    }
+   
 }

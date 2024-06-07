@@ -11,8 +11,8 @@ class Types extends Model
     use HasFactory;
     protected $guarded=['id'];
     public $timestamps = false;
-    public function transactions(): HasMany
+    public function items(): HasMany
     {
-        return $this->hasMany(Transactions::class);
+        return $this->hasMany(Items::class);
     }
 }

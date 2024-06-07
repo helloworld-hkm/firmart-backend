@@ -34,7 +34,9 @@ class ItemsController extends Controller
     public function store(Request $request)
     {
         $items = Items::create([
-            'name'=>$request->name
+            'name'=>$request->name,
+            'id_types'=>$request->id_types,
+            'stock'=>$request->stock
         ]);
         return response()->json([
             'data'=>$items
